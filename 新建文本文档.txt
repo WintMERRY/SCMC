@@ -1,0 +1,11 @@
+int thread_sample(void)
+{
+    /* 创建线程1，名称是thread1，入口是thread1_entry*/
+    tid1 = rt_thread_create("thread1",
+                            thread1_entry, RT_NULL,
+                            THREAD_STACK_SIZE,
+                            THREAD_PRIORITY, THREAD_TIMESLICE);
+    
+    /* 如果获得线程控制块，启动这个线程 */
+    if (tid1 != RT_NULL)
+        rt_thread_startup(tid1);
