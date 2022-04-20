@@ -1,0 +1,11 @@
+/* 初始化线程2，名称是thread2，入口是thread2_entry */
+    rt_thread_init
+		(		&thread2,
+				"thread2",
+				thread2_entry,
+				RT_NULL,
+				&thread2_stack[0],
+				sizeof(thread2_stack),
+				THREAD_PRIORITY - 1, THREAD_TIMESLICE
+		);
+		rt_thread_startup(&thread2);
